@@ -9,26 +9,30 @@ Así se crean comentarios en HTML
         <link href="css/stilos.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <header>
-            <h1 style="text-align: center;background-color: aqua;color: black">Pagina Principal</h1>
+        <header class="encabezado">
+            <nav class="navegacion">       
+                <a class="logo nav-link" href="index.html">TechShop</a>
 
-            <nav>       
-                <a href="index.html">TechShop</a>
-                <a href="Pagina3.html">&triangleleft;</a>
-                <a href="index.html">&triangleright;</a>
-                <nav>
+                <ul class="nav-menu">
+                    <li class="nav-menus-item"><a class="nav-menu-link nav-link" href="Pagina3.html">&triangleleft;</a></li>
+                    <li class="nav-menus-item"><a class="nav-menu-link nav-link" href="index.html">&triangleright;</a></li>
+                    <li class="nav-menus-item"><a class="nav-menu-link nav-link" href="audio.html">Audios</a></li>
+                    <li class="nav-menus-item"><a class="nav-menu-link nav-link" href="videos.html">Videos</a></li>
+                    <li class="nav-menus-item"><a class="nav-menu-link nav-link" href="iframe.html">Iframe</a></li>
+                    <li class="nav-menus-item"><a class="nav-menu-link nav-link" href="formulario.html">Formulario</a></li>
+                </ul>
+            </nav>
+        </header>
+        <h1 style="text-align: center;background-color: aqua;color: black">Pagina 4</h1>
+        <h2>Uso de imagenes</h2>
+        <section> 
+            <img src="img/74062D83-2D6D-4ECF-8B9B-479E4248E8FB.jpeg" alt="" width="900"/>
+            <img src="img/IMG_0308.jpeg" alt="" width="900"/>
+        </section> 
+        <footer>
 
-                    </header>
-                    <h1 style="text-align: center;background-color: aqua;color: black">Pagina 4</h1>
-                    <h2>Uso de imagenes</h2>
-                    <section> 
-                        <img src="img/74062D83-2D6D-4ECF-8B9B-479E4248E8FB.jpeg" alt="" width="900"/>
-                        <img src="img/IMG_0308.jpeg" alt="" width="900"/>
-                    </section> 
-                    <footer>
+            &COPY; Derechosa reservados TechShop 2024
 
-                        &COPY; Derechosa reservados TechShop 2024
-
-                    </footer>
-                    </body>
-                    </html>
+        </footer>
+    </body>
+</html>

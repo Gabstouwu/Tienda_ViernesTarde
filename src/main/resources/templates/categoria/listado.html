@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--
+Así se crean comentarios en HTML
+-->
+<html xmlns=" http://www.w3.org/199/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="~{Layout/plantilla :: head}">
+        <title>Lapulpe</title>
+        <meta charset="UTF-8"/>
+        <link href="css/stilos.css" rel="stylesheet" type="text/css"/>
+    </head>
+
+    <body>
+        <header th:replace="~{Layout/plantilla :: header}"/>
+        
+        <section th:replace="~{categoria/fragmentos:: botonesAgregar}"/>
+
+        <section th:replace="~{categoria/fragmentos:: listadoCategorias}"/>
+        <section th:replace="~{categoria/fragmentos:: agregarCategoria}"/>
+
+
+        <footer th:replace="~{Layout/plantilla :: footer}"/>
+    </body>
+
+</html>

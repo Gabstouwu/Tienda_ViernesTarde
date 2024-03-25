@@ -6,25 +6,25 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "categoria")
+@Table(name = "producto")
 
-public class Categoria implements Serializable {
+public class Producto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idCategoria;
+    private Long idProducto;
     private String descripcion;
     private String rutaImagen;
     private boolean activo;
 }
 
 /*
-create table techshop.categoria (
-  id_categoria INT NOT NULL AUTO_INCREMENT,
+create table techshop.producto (
+  id_producto INT NOT NULL AUTO_INCREMENT,
   descripcion VARCHAR(30) NOT NULL,
   ruta_imagen varchar(1024),
   activo bool,
-  PRIMARY KEY (id_categoria))
+  PRIMARY KEY (id_producto))
  */

@@ -1,34 +1,22 @@
+/* La siguiente función se utiliza para visualizar la imagen seleccionada en la
+ * página html donde se desea "cargar" utilizando un llamado "ajax"*/
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#blah')
+                    .attr('src', e.target.result)
+                    .height(200);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
 
-<dependency>
-    <groupId>com.google.firebase</groupId>
-    <artifactId>firebase-admin</artifactId>
-    <version>9.1.1</version>
-</dependency>
-
-        Recorte 000b (ajuste a versión, si se usa JDK 21)
-        === === === ==
-        <dependency>
-    <groupId>org.projectlombok</groupId>
-    <artifactId>lombok</artifactId>
-    <version>1.18.30</version>
-</dependency>
-
-
-        Recorte 001
-        === === === ==
-        package com.tienda.service;
-import org.springframework.web.multipart.MultipartFile;
-        public interface FirebaseStorageService {
-
-        public String cargaImagen(MultipartFile archivoLocalCliente, String carpeta, Long id);
-                //El BuketName es el <id_del_proyecto> + ".appspot.com"
-                final String BucketName = "xxidProjectxx.appspot.com";
-                //Esta es la ruta básica de este proyecto Techshop
-                final String rutaSuperiorStorage = "techshop";
-                //Ubicación donde se encuentra el archivo de configuración Json
-                final String rutaJsonFile = "firebase";
-                //El nombre del archivo Json
-                final String archivoJsonFile = "xxxNombre del archivo Json";
-                }
-
-
+/* La siguiente función se utiliza para activar la cantidad de elementos seleccionados
+ * En el carrito de compras utilizando un llamado "ajax" */
+function addCard(formulario) {
+    var valor = formulario.elements[0].value;
+    var url = '/carrito/agregar';
+    url = url + '/' + valor;
+    $("#resultsBlock").load(url);
+}

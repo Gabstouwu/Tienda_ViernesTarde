@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org"
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
     <head th:replace="~{layout/plantilla :: head}">
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8"/>
-        
+        <title>TechShop</title>        
     </head>
     <body>
         <header th:replace="~{layout/plantilla :: header}"/>
-        
-        <section th:replace="~{categoria/fragmentos :: editarCategoria}"/>
-        
+
+        <section th:replace="~{registro/fragmentos :: activarUsuario}"/>
+
         <footer th:replace="~{layout/plantilla :: footer}"/>
     </body>
 </html>

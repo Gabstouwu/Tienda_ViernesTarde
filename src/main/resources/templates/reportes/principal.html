@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>TechShop</title>
+    </head>
+    <body>
+        <header th:replace="~{layout/plantilla :: header}"></header>
+
+        <div class="row row-cols-3 mt-4">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h5>[[#{reporte.usuarios}]]</h5>
+                </div>
+                <div class="card-body">
+                    <a th:href="@{/reportes/usuarios?tipo=vPdf}"
+                       class="btn btn-primary">
+                        <i class="fas fa-eye"></i>
+                        <i class="fas fa-file-pdf"></i>
+                    </a>
+                    <a th:href="@{/reportes/usuarios?tipo=Pdf}"
+                       class="btn btn-success">
+                        <i class="fas fa-download"></i>
+                        <i class="fas fa-file-pdf"></i>
+                    </a>
+                    <a th:href="@{/reportes/usuarios?tipo=Xls}"
+                       class="btn btn-warning">
+                        <i class="fas fa-download"></i>
+                        <i class="fas fa-file-excel"></i>
+                    </a>
+                    <a th:href="@{/reportes/usuarios?tipo=Csv}"
+                       class="btn btn-danger">
+                        <i class="fas fa-download"></i>
+                        <i class="fas fa-file-csv"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header text-center">
+                    <h5>[[#{reporte.ventas}]]</h5>
+                </div>
+                <div class="card-body">
+                    <a th:href="@{/reportes/ventas?tipo=vPdf}"
+                       class="btn btn-primary">
+                        <i class="fas fa-eye"></i>
+                        <i class="fas fa-file-pdf"></i>
+                    </a>
+                    <a th:href="@{/reportes/ventas?tipo=Pdf}"
+                       class="btn btn-success">
+                        <i class="fas fa-download"></i>
+                        <i class="fas fa-file-pdf"></i>
+                    </a>
+                    <a th:href="@{/reportes/ventas?tipo=Xls}"
+                       class="btn btn-warning">
+                        <i class="fas fa-download"></i>
+                        <i class="fas fa-file-excel"></i>
+                    </a>
+                    <a th:href="@{/reportes/ventas?tipo=Csv}"
+                       class="btn btn-danger">
+                        <i class="fas fa-download"></i>
+                        <i class="fas fa-file-csv"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header text-center">
+                    <h5>[[#{reporte.ventas.totales}]]</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="mb-3">
+                            <label for="fechaIni">Fecha Incial</label>
+                            <input type="date" class="form-control"
+                                   name="fechaInicio"
+                                   th:value="${fechaInicio}"
+                                   required="true"/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="fechaIni">Fecha Final</label>
+                            <input type="date" class="form-control"
+                                   name="fechaFin"
+                                   th:value="${fechaFin}"
+                                   required="true"/>
+                        </div>
+                    </div>
+                    <a th:href="@{/reportes/ventas?tipo=vPdf}"
+                       class="btn btn-primary">
+                        <i class="fas fa-eye"></i>
+                        <i class="fas fa-file-pdf"></i>
+                    </a>
+                    <a th:href="@{/reportes/ventas?tipo=Pdf}"
+                       class="btn btn-success">
+                        <i class="fas fa-download"></i>
+                        <i class="fas fa-file-pdf"></i>
+                    </a>
+                    <a th:href="@{/reportes/ventas?tipo=Xls}"
+                       class="btn btn-warning">
+                        <i class="fas fa-download"></i>
+                        <i class="fas fa-file-excel"></i>
+                    </a>
+                    <a th:href="@{/reportes/ventas?tipo=Csv}"
+                       class="btn btn-danger">
+                        <i class="fas fa-download"></i>
+                        <i class="fas fa-file-csv"></i>
+                    </a>
+                </div>
+            </div>
+            
+            //new
+            
+            <div class="card">
+                <div class="card-header text-center">
+                    <h5>[[#{reporte.clientes}]]</h5>
+                </div>
+                    <a th:href="@{/reportes/clientes?tipo=vPdf}"
+                       class="btn btn-primary">
+                        <i class="fas fa-eye"></i>
+                        <i class="fas fa-file-pdf"></i>
+                    </a>
+                    <a th:href="@{/reportes/clientes?tipo=Pdf}"
+                       class="btn btn-success">
+                        <i class="fas fa-download"></i>
+                        <i class="fas fa-file-pdf"></i>
+                    </a>
+                    <a th:href="@{/reportes/clientes?tipo=Xls}"
+                       class="btn btn-warning">
+                        <i class="fas fa-download"></i>
+                        <i class="fas fa-file-excel"></i>
+                    </a>
+                    <a th:href="@{/reportes/clientes?tipo=Csv}"
+                       class="btn btn-danger">
+                        <i class="fas fa-download"></i>
+                        <i class="fas fa-file-csv"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header text-center">
+                    <h5>[[#{reporte.ventas.totales}]]</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="mb-3">
+                            <label for="fechaIni">Fecha Incial</label>
+                            <input type="date" class="form-control"
+                                   name="fechaInicio"
+                                   th:value="${fechaInicio}"
+                                   required="true"/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="fechaIni">Fecha Final</label>
+                            <input type="date" class="form-control"
+                                   name="fechaFin"
+                                   th:value="${fechaFin}"
+                                   required="true"/>
+                        </div>
+                    </div>
+                    <a th:href="@{/reportes/producto_categoria?tipo=vPdf}"
+                       class="btn btn-primary">
+                        <i class="fas fa-eye"></i>
+                        <i class="fas fa-file-pdf"></i>
+                    </a>
+                    <a th:href="@{/reportes/producto_categoria?tipo=Pdf}"
+                       class="btn btn-success">
+                        <i class="fas fa-download"></i>
+                        <i class="fas fa-file-pdf"></i>
+                    </a>
+                    <a th:href="@{/reportes/producto_categoria?tipo=Xls}"
+                       class="btn btn-warning">
+                        <i class="fas fa-download"></i>
+                        <i class="fas fa-file-excel"></i>
+                    </a>
+                    <a th:href="@{/reportes/producto_categoria?tipo=Csv}"
+                       class="btn btn-danger">
+                        <i class="fas fa-download"></i>
+                        <i class="fas fa-file-csv"></i>
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+        
+        <footer th:replace="~{layout/plantilla :: footer}"></footer>
+
+    </body>
+</html>

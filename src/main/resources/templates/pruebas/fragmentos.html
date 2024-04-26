@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>TechShop</title>
+    </head>
+    <body>
+        <!-- 1 Sección para crear el boton de agregar... llamará a una ventana modal-->
+        <section th:fragment="categoriasTabs">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" href="/pruebas/listado">[[#{pruebas.todas}]]</a>
+                </li>
+                <li th:each="c : ${categorias}"
+                    class="nav-item">
+                    <a class="nav-link" 
+                       th:href="@{/pruebas/listado/}+${c.idCategoria}"
+                       >[[${c.descripcion}]]</a>
+                </li>
+            </ul>
+        </section>
+
+        <!-- 2 Sección principal para mostrar la informaccion de la entidad producto -->
+        <section th:fragment="listadoProductos" id="productos">
+            <div class="row row-cols-4">
+                <div class="card p-5" th:each="p : ${productos}">
+                    <figure><img th:src="${p.rutaImagen}" 
+                                 class="card-img-top" alt="..."
+                                 height="200"/>
+                        <figcaption>[[${p.precio}+' ('+${p.existencias}+')']]                    
+                            <a th:href="@{/producto/eliminar/}+${p.idProducto}">
+                                <i class="fas fa-trash"></i> </a>
+                            <a th:href="@{/producto/modificar/}+${p.idProducto}">
+                                <i class="fas fa-pencil"></i> </a>                                                  
+                        </figcaption>
+                    </figure>
+                    <div class="card-header">
+                        <h4 class="card-title">[[${p.descripcion}]]</h4>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">[[${p.detalle}]]</p>                    
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3 Sección para realizar el filtro de los productos por precios -->
+        <section th:fragment="filtros">
+            <div class='row p-4'>
+                <div class='col-md-1'></div>
+                <div class='col-md-3'>
+                    <form method="post" th:action='@{/pruebas/query1}'>
+                        <div class='card text-center p-3'>
+                            <div class='card-header'>
+                            [[#{pruebas.ampliadas}]]
+                            </div>
+                            <div class='card-body'>
+                                <div class="mb-3">
+                                    <label for="precioInf">[[#{pruebas.precio.inferior}]]</label>
+                                    <input type="number" class="form-control" th:value='${precioInf}' name="precioInf" required="true"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="precioSup">[[#{pruebas.precio.superior}]]</label>
+                                    <input type="number" class="form-control" th:value='${precioSup}' name="precioSup" required="true"/>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button type='submit' class='btn btn-primary'>
+                                    <i class='fas fa-check'></i> [[#{pruebas.ampliadas}]]
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div> 
+                <div class='col-md-3'>
+                    <form method="post" th:action='@{/pruebas/query2}'>
+                        <div class='card text-center p-3'>
+                            <div class='card-header'>
+                            [[#{pruebas.ampliadas}]]
+                            </div>
+                            <div class='card-body'>
+                                <div class="mb-3">
+                                    <label for="precioInf">[[#{pruebas.precio.inferior}]]</label>
+                                    <input type="number" class="form-control" th:value='${precioInf}' name="precioInf" required="true"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="precioSup">[[#{pruebas.precio.superior}]]</label>
+                                    <input type="number" class="form-control" th:value='${precioSup}' name="precioSup" required="true"/>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button type='submit' class='btn btn-primary'>
+                                    <i class='fas fa-check'></i> [[#{pruebas.ampliadas}]]
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class='col-md-3'>
+                    <form method="post" th:action='@{/pruebas/query3}'>
+                        <div class='card text-center p-3'>
+                            <div class='card-header'>
+                            [[#{pruebas.nativo}]]
+                            </div>
+                            <div class='card-body'>
+                                <div class="mb-3">
+                                    <label for="precioInf">[[#{pruebas.precio.inferior}]]</label>
+                                    <input type="number" class="form-control" th:value='${precioInf}' name="precioInf" required="true"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="precioSup">[[#{pruebas.precio.superior}]]</label>
+                                    <input type="number" class="form-control" th:value='${precioSup}' name="precioSup" required="true"/>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button type='submit' class='btn btn-primary'>
+                                    <i class='fas fa-check'></i> [[#{pruebas.nativo}]]
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>    
+    </body>
+</html>
